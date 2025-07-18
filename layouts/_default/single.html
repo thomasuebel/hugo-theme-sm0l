@@ -1,4 +1,9 @@
 {{ define "main" }}
-    {{ partial "post-metadata.html" . }}
-    {{ .Content }}
+    <article>
+        <h1>{{ .Title }}</h1>
+        {{ partial "post-metadata.html" . }}
+        <section>
+            {{ .Content }}
+        </section>
+    </article>
 {{ end }}

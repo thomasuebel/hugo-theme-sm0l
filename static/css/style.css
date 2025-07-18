@@ -1,59 +1,529 @@
-/* LAYOUT */
+/* Medium.com-inspired CSS for sm0l theme */
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.6;
+}
 
 body {
-  color: #333;
-  font-size: 125%;
-  line-height: 1.5;
-  max-width: 45rem;
-  padding: 1rem;
-  margin: 0 auto;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #242424;
+    background-color: #ffffff;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.content {
-  margin-bottom: 2rem;
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 2em 0 1em 0;
+    line-height: 1.25;
 }
 
-/* NAVIGATION */
-
-.site-nav {
-  display: flex;
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5em;
 }
 
-.site-nav a {
-  display: block;
-  padding: 1rem;
+h2 {
+    font-size: 2rem;
+    margin-top: 2.5em;
 }
 
-.site-nav .logo {
-  font-weight: bold;
-  padding-left: 0;
+h3 {
+    font-size: 1.5rem;
 }
 
-.main-menu {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+h4 {
+    font-size: 1.25rem;
 }
 
-@media screen and (max-width: 48rem) {
-  .site-nav,
-  .main-menu {
+p {
+    margin: 1.5em 0;
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+/* Links */
+a {
+    color: #1a8917;
+    text-decoration: none;
+    border-bottom: 1px solid #1a8917;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: #0f5d0f;
+    border-bottom-color: #0f5d0f;
+}
+
+/* Lists */
+ul, ol {
+    margin: 1.5em 0;
+    padding-left: 2em;
+}
+
+li {
+    margin: 0.5em 0;
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+/* Blockquotes */
+blockquote {
+    margin: 2em 0;
+    padding: 1em 2em;
+    border-left: 4px solid #e6e6e6;
+    font-style: italic;
+    color: #6b6b6b;
+    background-color: #fafafa;
+}
+
+/* Code */
+code {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    background-color: #f8f8f8;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+pre {
+    background-color: #f8f8f8;
+    padding: 1em;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1.5em 0;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+/* Navigation */
+nav {
+    padding: 2em 0;
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav > a {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    border-bottom: none;
+    text-decoration: none;
+}
+
+nav > a:hover {
+    color: #1a8917;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2em;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav ul a {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    border-bottom: none;
+    text-decoration: none;
+}
+
+nav ul a:hover {
+    color: #1a8917;
+}
+
+/* CSS-only hamburger menu */
+.nav-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
     flex-direction: column;
-  }
-
-  .site-nav a {
-    padding: 0.5rem;
-    padding-left: 0;
-  }
+    cursor: pointer;
+    gap: 4px;
 }
 
-/* LISTS */
-
-.post-snippet {
-  margin-bottom: 1rem;
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #1a1a1a;
+    transition: all 0.3s ease;
+    border-radius: 2px;
 }
 
-.post-snippet h3 {
-  margin-bottom: 0.25rem;
+.nav-toggle:checked + .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle:checked + .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Main content */
+main {
+    padding: 2em 0;
+}
+
+/* Article metadata */
+.postMetadata {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.9rem;
+    color: #999999;
+    margin: 1em 0 2em 0;
+}
+
+.postMetadata dl {
+    margin: 0;
+    padding: 0;
+}
+
+.postMetadata dt {
+    display: inline;
+    font-weight: 500;
+    color: #999999;
+    margin-right: 0.5em;
+}
+
+.postMetadata dd {
+    display: inline;
+    margin: 0;
+    margin-left: 0;
+}
+
+.postMetadata dt:after {
+    content: ": ";
+}
+
+.postMetadata dd:after {
+    content: "\A";
+    white-space: pre;
+}
+
+.postMetadata a {
+    color: #999999;
+    border-bottom: none;
+    text-decoration: none;
+}
+
+.postMetadata a:hover {
+    color: #1a8917;
+}
+
+/* Tags styling within metadata */
+.postMetadata dd a {
+    margin-right: 0.5em;
+}
+
+.postMetadata dd a:before {
+    content: "#";
+}
+
+/* Legacy tags class for backward compatibility */
+.tags {
+    margin: 2em 0;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #6b6b6b;
+    padding: 0.3em 0.8em;
+    border-radius: 15px;
+    margin-right: 0.5em;
+    font-size: 0.85rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    text-decoration: none;
+    border: none;
+}
+
+.tag:hover {
+    background-color: #e0e0e0;
+    color: #1a1a1a;
+}
+
+/* Footer */
+footer {
+    padding: 3em 0 2em 0;
+    border-top: 1px solid #e6e6e6;
+    margin-top: 3em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.9rem;
+    color: #6b6b6b;
+    text-align: center;
+}
+
+/* Responsive design - Three viewport sizes */
+
+/* S: iPhone 16 (393px width) and smaller mobile devices */
+@media (max-width: 430px) {
+    body {
+        padding: 0 16px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+        margin-bottom: 0.75em;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+        margin-top: 2em;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+    }
+    
+    p, li {
+        font-size: 1.1rem;
+        line-height: 1.65;
+    }
+    
+    .post-content p:first-child {
+        font-size: 1.25rem;
+    }
+    
+    nav {
+        padding: 1.5em 0;
+        position: relative;
+    }
+    
+    nav > a {
+        font-size: 1.1rem;
+    }
+    
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        border: 1px solid #e6e6e6;
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 1em;
+        min-width: 200px;
+        z-index: 1000;
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    .nav-toggle:checked ~ ul {
+        display: flex;
+    }
+    
+    nav ul a {
+        font-size: 1rem;
+        padding: 0.5em 0;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    ul, ol {
+        padding-left: 1.5em;
+    }
+    
+    blockquote {
+        padding: 1em 1.5em;
+        margin: 1.5em 0;
+    }
+    
+    pre {
+        padding: 0.75em;
+        font-size: 0.85rem;
+    }
+}
+
+/* M: iPad Air (820px width) and tablet devices */
+@media (min-width: 431px) and (max-width: 1024px) {
+    body {
+        padding: 0 40px;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+    
+    h1 {
+        font-size: 2.25rem;
+        line-height: 1.2;
+    }
+    
+    h2 {
+        font-size: 1.875rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    p, li {
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+    
+    .post-content p:first-child {
+        font-size: 1.3rem;
+    }
+    
+    nav {
+        padding: 2em 0;
+    }
+    
+    nav > a {
+        font-size: 1.1rem;
+    }
+    
+    nav ul {
+        gap: 2.5em;
+    }
+    
+    main {
+        padding: 2.5em 0;
+    }
+    
+    ul, ol {
+        padding-left: 2.5em;
+    }
+    
+    blockquote {
+        padding: 1.25em 2.5em;
+        margin: 2.5em 0;
+    }
+    
+    pre {
+        padding: 1.25em;
+        margin: 2em 0;
+    }
+}
+
+/* L: Broader than iPad (desktop and large screens) */
+@media (min-width: 1025px) {
+    body {
+        padding: 0 20px;
+        max-width: 680px;
+        margin: 0 auto;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+        line-height: 1.25;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    p, li {
+        font-size: 1.25rem;
+        line-height: 1.6;
+    }
+    
+    .post-content p:first-child {
+        font-size: 1.375rem;
+    }
+    
+    nav {
+        padding: 2em 0;
+    }
+    
+    nav > a {
+        font-size: 1rem;
+    }
+    
+    nav ul {
+        gap: 2em;
+    }
+    
+    main {
+        padding: 2em 0;
+    }
+    
+    ul, ol {
+        padding-left: 2em;
+    }
+    
+    blockquote {
+        padding: 1em 2em;
+        margin: 2em 0;
+    }
+    
+    pre {
+        padding: 1em;
+        margin: 1.5em 0;
+    }
+    
+    /* Enhanced desktop experience */
+    body {
+        font-size: 16px;
+    }
+    
+    .post-meta {
+        font-size: 0.9rem;
+    }
+    
+    footer {
+        padding: 3em 0 2em 0;
+    }
+}
+
+/* Reading experience enhancements */
+.post-content {
+    margin-top: 2em;
+}
+
+.post-content p:first-child {
+    font-size: 1.375rem;
+    color: #1a1a1a;
+    margin-bottom: 1.5em;
+}
+
+/* Subtle animations */
+* {
+    transition: color 0.2s ease;
+}
+
+/* Focus styles for accessibility */
+a:focus, button:focus {
+    outline: 2px solid #1a8917;
+    outline-offset: 2px;
 }

@@ -1,19 +1,23 @@
 {{ define "main" }}
-    {{ if .Site.Params.author.avatar }}
-        {{ partial "avatar.html" . }}
-    {{ end }}
-
-    {{ if isset .Site.Params "social" }}
-        {{ partial "social.html" . }}
-    {{ end }}
-
-    {{ $paginator := .Paginate (where .Site.RegularPages "Section" "blog") }}
-    <ul>
-        {{ range $paginator.Pages }}
-            <li>
-                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-            </li>
+    <h1>{{ .Title }}</h1>
+    <section>
+        {{ if .Site.Params.author.avatar }}
+            {{ partial "avatar.html" . }}
         {{ end }}
-    </ul>
+
+        {{ if isset .Site.Params "social" }}
+            {{ partial "social.html" . }}
+        {{ end }}
+    </section>
+    <section>
+        {{ $paginator := .Paginate (where .Site.RegularPages "Section" "blog") }}
+        <ul>
+            {{ range $paginator.Pages }}
+                <li>
+                    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                </li>
+            {{ end }}
+        </ul>
+    </section>
     {{ template "_internal/pagination.html" . }}
 {{ end }}
