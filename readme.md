@@ -1,20 +1,21 @@
-# Hugo Starter Theme
+# Hugo "Sm0l" Theme
 
-Dead-simple Hugo theme with everything you need to get started. Intended to be a starter for creating your own theme without including useless bloat like most Hugo themes.
+A small theme for HUGO static site generator, 
+focused on semantic HTML and accessibility and readability.
 
-## Getting started
+# Using Sm0l
 
-Inside your project folder, copy the theme to your `themes` folder. Since you're just using it as a starter for your theme, remove the git history.
+inside your HUGO project folder
 
-```bash
-git clone https://github.com/ericmurphyxyz/hugo-starter-theme themes/your-theme-name
-rm -rf themes/your-theme-name/.git
+```
+git submodule add https://github.com/thomasuebel/hugo-theme-sm0l.git themes/sm0l
 ```
 
-If you'd like some example content and an example config file to get started, you can copy the `exampleSite` directory into your root Hugo directory.
+add 
 
-```bash
-cp -r themes/your-theme-name/exampleSite/* ./
+```
+theme = 'sm0l'
 ```
 
+Built with help from @ericmurphyxyz HUGO Starter Theme. 
 To learn more about building themes in Hugo, refer to Hugo's [templating documentation](https://gohugo.io/templates/).
