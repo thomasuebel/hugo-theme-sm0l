@@ -702,6 +702,25 @@ a:focus, button:focus {
     color: #1a8917;
 }
 
+/* Author and date styling in post metadata */
+.author-and-date {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.author-avatar {
+    display: inline-flex;
+    align-items: center;
+}
+
+.author-avatar .avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 /* Responsive adjustments for profile header */
 @media (max-width: 430px) {
     .profile-header {

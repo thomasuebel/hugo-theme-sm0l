@@ -9,6 +9,9 @@
         {{ if or $author (.Site.Params.published | default true) }}
             <dt>{{ i18n "author_and_date" | default "By" }}</dt>
             <dd class="author-and-date">
+                {{ if and $author .Site.Params.author.avatar }}
+                    <span class="author-avatar">{{ partial "avatar/avatar-small.html" . }}</span>
+                {{ end }}
                 {{ if $author }}{{ $author }}{{ end }}
                 {{ if and $author (.Site.Params.published | default true) }} · {{ end }}
                 {{ if .Site.Params.published | default true }}
