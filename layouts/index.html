@@ -1,0 +1,19 @@
+{{ define "main" }}
+    {{ if .Site.Params.author.avatar }}
+        {{ partial "avatar.html" . }}
+    {{ end }}
+
+    {{ if isset .Site.Params "social" }}
+        {{ partial "social.html" . }}
+    {{ end }}
+
+    {{ $paginator := .Paginate (where .Site.RegularPages "Section" "blog") }}
+    <ul>
+        {{ range $paginator.Pages }}
+            <li>
+                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            </li>
+        {{ end }}
+    </ul>
+    {{ template "_internal/pagination.html" . }}
+{{ end }}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+    {{ partial "meta.html" . }}
+    <title>
+        {{ block "title" . }}
+            {{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}
+        {{ end }}
+    </title>
+</head>
+
+<body>
+    {{ partial "navigation.html" . }}
+
+    <main>
+        <h1>{{ .Title }}</h1>
+        {{ block "main" . }}
+        {{ end }}
+    </main>
+
+    <footer>
+        {{ partial "footer.html" . }}
+    </footer>
+
+</body>

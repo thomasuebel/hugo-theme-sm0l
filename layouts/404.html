@@ -1,0 +1,7 @@
+{{ define "title"}}
+    404 {{ i18n "not_found" }} | {{ .Site.Params.author.name }}
+{{ end }}
+
+{{ define "main"}}
+    <p>{{ i18n "not_found_desc" }}</p>
+{{ end }}

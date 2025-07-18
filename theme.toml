@@ -1,0 +1,12 @@
+name = "Sm0l"
+license = "CC-BY"
+licenselink = "https://creativecommons.org/licenses/by/4.0/"
+description = "A minimal blog theme for the indie web"
+homepage = "https://thomasuebel.de"
+tags = ["minimal", "light", "blog", "multilingual"]
+features = ["blog", "dark", "multilingual"]
+min_version = "0.114.0"
+
+[author]
+name = "Thomas Uebel"
+homepage = "https://thomasuebel.de"
