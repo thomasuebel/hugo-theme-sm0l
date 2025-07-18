@@ -1,23 +1,55 @@
 {{ define "main" }}
-    <h1>{{ .Title }}</h1>
-    <section>
-        {{ if .Site.Params.author.avatar }}
-            {{ partial "avatar.html" . }}
-        {{ end }}
+    <header class="profile-header">
+        <div class="profile-info">
+            {{ if .Site.Params.author.avatar }}
+                <div class="avatar-container">
+                    {{ partial "avatar.html" . }}
+                </div>
+            {{ end }}
+            
+            <div class="profile-text">
+                <h1 class="site-title">{{ .Site.Title }}</h1>
+                {{ if .Site.Params.author.name }}
+                    <p class="author-name">{{ .Site.Params.author.name }}</p>
+                {{ end }}
+                
+                {{ if isset .Site.Params "social" }}
+                    <div class="social-links">
+                        {{ partial "social.html" . }}
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+        
+        <div class="profile-divider"></div>
+    </header>
 
-        {{ if isset .Site.Params "social" }}
-            {{ partial "social.html" . }}
-        {{ end }}
-    </section>
-    <section>
+    <section class="posts-section">
         {{ $paginator := .Paginate (where .Site.RegularPages "Section" "blog") }}
-        <ul>
+        <ul class="posts-list">
             {{ range $paginator.Pages }}
-                <li>
+                <li class="post-item">
                     <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                    {{ if .Summary }}
+                        <p class="post-summary">{{ .Summary | truncate 150 }}</p>
+                    {{ end }}
+                    <div class="post-meta">
+                        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+                        {{ if .Site.Params.readingTime | default true }}
+                            <span class="reading-time">{{ i18n "reading_time_desc" .ReadingTime }}</span>
+                        {{ end }}
+                        {{ with .GetTerms "tags" }}
+                            <div class="post-tags">
+                                {{ range . }}
+                                    <a href="{{ .RelPermalink }}" class="tag-link">#{{ .LinkTitle }}</a>
+                                {{ end }}
+                            </div>
+                        {{ end }}
+                    </div>
                 </li>
             {{ end }}
         </ul>
     </section>
+    
     {{ template "_internal/pagination.html" . }}
 {{ end }}

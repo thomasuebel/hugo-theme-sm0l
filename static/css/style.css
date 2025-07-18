@@ -1,4 +1,3 @@
-/* Medium.com-inspired CSS for sm0l theme */
 
 /* Reset and base styles */
 * {
@@ -526,4 +525,262 @@ footer {
 a:focus, button:focus {
     outline: 2px solid #1a8917;
     outline-offset: 2px;
+}
+
+/* profile header */
+.profile-header {
+    text-align: center;
+    padding: 3em 0 2em 0;
+    margin-bottom: 3em;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.avatar-container {
+    position: relative;
+}
+
+.avatar {
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.avatar.size-s {
+    width: 48px;
+    height: 48px;
+}
+
+.avatar.size-m {
+    width: 88px;
+    height: 88px;
+}
+
+.avatar.size-l {
+    width: 128px;
+    height: 128px;
+}
+
+.profile-text {
+    text-align: center;
+}
+
+.site-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 0.5em 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.author-name {
+    font-size: 1.25rem;
+    color: #6b6b6b;
+    margin: 0 0 1em 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.social-links {
+    margin-top: 1em;
+}
+
+.social-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.social-item {
+    margin: 0;
+}
+
+.social-link {
+    color: #6b6b6b;
+    font-size: 1.1rem;
+    border-bottom: none;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.social-link:hover {
+    color: #1a1a1a;
+}
+
+.social-link i {
+    font-size: 1.2rem;
+}
+
+.profile-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #e6e6e6;
+    margin: 2em 0 0 0;
+}
+
+/* Posts section styling */
+.posts-section {
+    margin-top: 2em;
+}
+
+.posts-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post-item {
+    margin: 0 0 2.5em 0;
+    padding: 0;
+}
+
+.post-item h3 {
+    margin: 0 0 0.5em 0;
+    font-size: 1.5rem;
+    line-height: 1.25;
+}
+
+.post-item h3 a {
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.post-item h3 a:hover {
+    color: #1a8917;
+}
+
+.post-summary {
+    color: #6b6b6b;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0.5em 0 0.75em 0;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    color: #999999;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75em;
+}
+
+.reading-time {
+    color: #999999;
+}
+
+.reading-time::before {
+    content: "·";
+    margin-right: 0.5em;
+    color: #cccccc;
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.tag-link {
+    color: #999999;
+    text-decoration: none;
+    border-bottom: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+}
+
+.tag-link:hover {
+    color: #1a8917;
+}
+
+/* Responsive adjustments for profile header */
+@media (max-width: 430px) {
+    .profile-header {
+        padding: 2em 0 1.5em 0;
+    }
+    
+    .profile-info {
+        gap: 1em;
+    }
+    
+    .site-title {
+        font-size: 1.75rem;
+    }
+    
+    .author-name {
+        font-size: 1.1rem;
+    }
+    
+    .social-list {
+        gap: 0.75em;
+    }
+    
+    .social-link {
+        font-size: 1rem;
+    }
+    
+    .post-item {
+        margin: 0 0 2em 0;
+    }
+    
+    .post-item h3 {
+        font-size: 1.25rem;
+    }
+    
+    .post-summary {
+        font-size: 1rem;
+    }
+    
+    .post-meta {
+        gap: 0.5em;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .post-tags {
+        margin-top: 0.25em;
+    }
+}
+
+@media (min-width: 431px) and (max-width: 1024px) {
+    .profile-header {
+        padding: 2.5em 0 1.75em 0;
+    }
+    
+    .profile-info {
+        gap: 1.25em;
+    }
+    
+    .site-title {
+        font-size: 2.25rem;
+    }
+    
+    .author-name {
+        font-size: 1.2rem;
+    }
+    
+    .social-list {
+        gap: 0.9em;
+    }
+    
+    .post-item {
+        margin: 0 0 2.25em 0;
+    }
+    
+    .post-item h3 {
+        font-size: 1.4rem;
+    }
+    
+    .post-summary {
+        font-size: 1.05rem;
+    }
 }
