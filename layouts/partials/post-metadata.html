@@ -1,37 +1,48 @@
 <section class="postMetadata">
-    <dl>
-        {{ $author := "" }}
-        {{ if .Params.author }}
-            {{ $author = .Params.author }}
-        {{ else if .Site.Params.author.name }}
-            {{ $author = .Site.Params.author.name }}
+    {{ $author := "" }}
+    {{ if .Params.author }}
+        {{ $author = .Params.author }}
+    {{ else if .Site.Params.author.name }}
+        {{ $author = .Site.Params.author.name }}
+    {{ end }}
+    
+    <!-- First line: Avatar, Author, Reading Time, Date -->
+    <div class="post-meta-line">
+        {{ if and $author .Site.Params.author.avatar }}
+            <span class="author-avatar">{{ partial "avatar/avatar-small.html" . }}</span>
         {{ end }}
-        {{ if or $author (.Site.Params.published | default true) }}
-            <dt>{{ i18n "author_and_date" | default "By" }}</dt>
-            <dd class="author-and-date">
-                {{ if and $author .Site.Params.author.avatar }}
-                    <span class="author-avatar">{{ partial "avatar/avatar-small.html" . }}</span>
-                {{ end }}
-                {{ if $author }}{{ $author }}{{ end }}
-                {{ if and $author (.Site.Params.published | default true) }} · {{ end }}
-                {{ if .Site.Params.published | default true }}
-                    {{ $formattedDate := .Date.Format "2006-01-02" }}
-                    <time datetime="{{ $formattedDate }}">{{ .Date | time.Format ":date_long" }}</time>
-                {{ end }}
-            </dd>
-        {{ end }}
-        {{ with .GetTerms "tags" }}
-            {{ partial "taxonomy/tags.html" . }}
-        {{ end }}
-        {{ with .GetTerms "authors" }}
-            {{ partial "taxonomy/authors.html" . }}
-        {{ end }}
-        {{ with .GetTerms "categories" }}
-            {{ partial "taxonomy/categories.html" . }}
+        {{ if $author }}
+            <span class="author-name">{{ $author }}</span>
         {{ end }}
         {{ if .Site.Params.readingTime | default true }}
-            <dt>{{ i18n "reading_time" }}</dt>
-            <dd>{{ i18n "reading_time_desc" .ReadingTime }}</dd>
+            <span class="reading-time">{{ i18n "reading_time_desc" .ReadingTime }}</span>
         {{ end }}
-    </dl>
+        {{ if .Site.Params.published | default true }}
+            <span class="publish-date">
+                {{ $formattedDate := .Date.Format "2006-01-02" }}
+                <time datetime="{{ $formattedDate }}">{{ .Date | time.Format ":date_long" }}</time>
+            </span>
+        {{ end }}
+    </div>
+    
+    <!-- Second line: Tags -->
+    {{ with .GetTerms "tags" }}
+        <div class="post-tags-line">
+            {{ range . }}
+                <a href="{{ .RelPermalink }}" class="tag-link">#{{ .LinkTitle }}</a>
+            {{ end }}
+        </div>
+    {{ end }}
+    
+    <!-- Keep other metadata for backward compatibility -->
+    {{ with .GetTerms "authors" }}
+        <dl style="display: none;">
+            {{ partial "taxonomy/authors.html" . }}
+        </dl>
+    {{ end }}
+    {{ with .GetTerms "categories" }}
+        <dl style="display: none;">
+            {{ partial "taxonomy/categories.html" . }}
+        </dl>
+    {{ end }}
 </section>

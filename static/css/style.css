@@ -585,6 +585,12 @@ a:focus, button:focus {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+.post-meta-line .author-name {
+    color: #999999;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
 .social-links {
     margin-top: 1em;
 }
@@ -702,11 +708,14 @@ a:focus, button:focus {
     color: #1a8917;
 }
 
-/* Author and date styling in post metadata */
-.author-and-date {
+/* Post metadata styling */
+.post-meta-line {
     display: flex;
     align-items: center;
     gap: 0.5em;
+    margin-bottom: 1em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 0.9rem;
 }
 
 .author-avatar {
@@ -719,6 +728,41 @@ a:focus, button:focus {
     height: 24px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.author-name {
+    color: #999999;
+}
+
+.reading-time,
+.publish-date {
+    color: #999999;
+}
+
+.reading-time::before,
+.publish-date::before {
+    content: "·";
+    margin-right: 0.5em;
+    color: #cccccc;
+}
+
+.post-tags-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.post-tags-line .tag-link {
+    color: #999999;
+    text-decoration: none;
+    border-bottom: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.post-tags-line .tag-link:hover {
+    color: #1a8917;
 }
 
 /* Responsive adjustments for profile header */
