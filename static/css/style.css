@@ -765,6 +765,95 @@ a:focus, button:focus {
     color: #1a8917;
 }
 
+/* Pagination styling */
+.pagination {
+    margin: 3em 0 2em 0;
+    padding: 2em 0;
+    border-top: 1px solid #e6e6e6;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.pagination-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.pagination-link:hover {
+    color: #1a8917;
+    background-color: #f8f8f8;
+}
+
+.pagination-prev,
+.pagination-next {
+    min-width: 80px;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.pagination-number {
+    min-width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.pagination-current {
+    min-width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a8917;
+    color: white;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Responsive pagination */
+@media (max-width: 430px) {
+    .pagination-container {
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    .pagination-numbers {
+        order: 1;
+    }
+    
+    .pagination-prev {
+        order: 2;
+        align-self: flex-start;
+    }
+    
+    .pagination-next {
+        order: 3;
+        align-self: flex-end;
+    }
+}
+
 /* Responsive adjustments for profile header */
 @media (max-width: 430px) {
     .profile-header {

@@ -1,14 +1,32 @@
 {{ define "main" }}
     {{ .Content }}
-    {{ range.Data.Pages }}
-        <section>
-            <h3>
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            </h3>
-            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-                {{ .Date.Format "January 2, 2006" }}
-            </time>
-        </section>
-    {{ end }}
+    <section class="posts-section">
+        <ul class="posts-list">
+            {{ range .Paginator.Pages }}
+                <li class="post-item">
+                    <h3>
+                        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                    </h3>
+                    {{ if .Summary }}
+                        <p class="post-summary">{{ .Summary | truncate 150 }}</p>
+                    {{ end }}
+                    <div class="post-meta">
+                        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                            {{ .Date.Format "January 2, 2006" }}
+                        </time>
+                        {{ with .GetTerms "tags" }}
+                            <div class="post-tags">
+                                {{ range . }}
+                                    <a href="{{ .RelPermalink }}" class="tag-link">#{{ .LinkTitle }}</a>
+                                {{ end }}
+                            </div>
+                        {{ end }}
+                    </div>
+                </li>
+            {{ end }}
+        </ul>
+    </section>
+
+    {{ partial "pagination.html" . }}
 {{ end }}
 

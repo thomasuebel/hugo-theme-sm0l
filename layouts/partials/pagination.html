@@ -1,0 +1,29 @@
+    <nav class="pagination" aria-label="Pagination">
+        <div class="pagination-container">
+            {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.Prev.URL }}" class="pagination-link pagination-prev" aria-label="Previous page">
+                    <span aria-hidden="true">&larr;</span>
+                    <span>Previous</span>
+                </a>
+            {{ end }}
+            
+            <div class="pagination-numbers">
+                {{ range .Paginator.Pagers }}
+                    {{ if eq . $.Paginator }}
+                        <span class="pagination-current" aria-current="page">{{ .PageNumber }}</span>
+                    {{ else }}
+                        <a href="{{ .URL }}" class="pagination-link pagination-number" aria-label="Page {{ .PageNumber }}">
+                            {{ .PageNumber }}
+                        </a>
+                    {{ end }}
+                {{ end }}
+            </div>
+            
+            {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.Next.URL }}" class="pagination-link pagination-next" aria-label="Next page">
+                    <span>Next</span>
+                    <span aria-hidden="true">&rarr;</span>
+                </a>
+            {{ end }}
+        </div>
+    </nav>
