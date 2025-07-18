@@ -1,5 +1,15 @@
 <section class="postMetadata">
     <dl>
+        {{ $author := "" }}
+        {{ if .Params.author }}
+            {{ $author = .Params.author }}
+        {{ else if .Site.Params.author.name }}
+            {{ $author = .Site.Params.author.name }}
+        {{ end }}
+        {{ if $author }}
+            <dt>{{ i18n "author" | default "Author" }}</dt>
+            <dd>{{ $author }}</dd>
+        {{ end }}
         {{ with .GetTerms "tags" }}
             {{ partial "taxonomy/tags.html" . }}
         {{ end }}
