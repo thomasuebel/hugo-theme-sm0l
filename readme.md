@@ -17,5 +17,5 @@ add
 theme = 'sm0l'
 ```
 
-Built with help from [@ericmurphyxyz's HUGO Starter Theme](https://github.com/ericmurphyxyz/hugo-starter-theme). 
+Built with help from [Eric Murphy's HUGO Starter Theme](https://github.com/ericmurphyxyz/hugo-starter-theme). 
 To learn more about building themes in Hugo, refer to Hugo's [templating documentation](https://gohugo.io/templates/).
