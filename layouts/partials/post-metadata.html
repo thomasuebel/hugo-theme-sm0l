@@ -6,9 +6,16 @@
         {{ else if .Site.Params.author.name }}
             {{ $author = .Site.Params.author.name }}
         {{ end }}
-        {{ if $author }}
-            <dt>{{ i18n "author" | default "Author" }}</dt>
-            <dd>{{ $author }}</dd>
+        {{ if or $author (.Site.Params.published | default true) }}
+            <dt>{{ i18n "author_and_date" | default "By" }}</dt>
+            <dd class="author-and-date">
+                {{ if $author }}{{ $author }}{{ end }}
+                {{ if and $author (.Site.Params.published | default true) }} · {{ end }}
+                {{ if .Site.Params.published | default true }}
+                    {{ $formattedDate := .Date.Format "2006-01-02" }}
+                    <time datetime="{{ $formattedDate }}">{{ .Date | time.Format ":date_long" }}</time>
+                {{ end }}
+            </dd>
         {{ end }}
         {{ with .GetTerms "tags" }}
             {{ partial "taxonomy/tags.html" . }}
@@ -18,11 +25,6 @@
         {{ end }}
         {{ with .GetTerms "categories" }}
             {{ partial "taxonomy/categories.html" . }}
-        {{ end }}
-        {{ if .Site.Params.published | default true }}
-            <dt>{{ i18n "published" }}</dt>
-            {{ $formattedDate := .Date.Format "2006-01-02" }}
-            <dd><time datetime="{{ $formattedDate }}">{{ .Date | time.Format ":date_long" }}</time></dd>
         {{ end }}
         {{ if .Site.Params.readingTime | default true }}
             <dt>{{ i18n "reading_time" }}</dt>
