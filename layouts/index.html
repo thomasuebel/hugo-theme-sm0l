@@ -1,6 +1,6 @@
 {{ define "main" }}
     <header class="profile-header">
-        <div class="profile-info">
+        <div class="h-card profile-info">
             {{ if .Site.Params.author.avatar }}
                 <div class="avatar-container">
                     {{ partial "avatar/avatar-medium.html" . }}
@@ -10,7 +10,7 @@
             <div class="profile-text">
                 <h1 class="site-title">{{ .Site.Title }}</h1>
                 {{ if .Site.Params.author.name }}
-                    <p class="author-name">{{ .Site.Params.author.name }}</p>
+                    <p class="p-name author-name">{{ .Site.Params.author.name }}</p>
                 {{ end }}
                 
                 {{ if isset .Site.Params "social" }}
