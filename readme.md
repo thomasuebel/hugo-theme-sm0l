@@ -19,3 +19,21 @@ theme = 'sm0l'
 
 Built with help from [Eric Murphy's HUGO Starter Theme](https://github.com/ericmurphyxyz/hugo-starter-theme). 
 To learn more about building themes in Hugo, refer to Hugo's [templating documentation](https://gohugo.io/templates/).
+
+# IndieWeb
+
+The theme is built around the idea that the IndieWeb needs all the support it can get. The
+Author information that you put in your configuration is rendered as an IndieWeb h-card.
+Into your sites index file.
+
+# Author Information
+```
+[params.author]
+name = "your name"
+avatar = "/images/avatar.png"
+```
+
+# Avatar
+
+Place your avatar image PNG into your assets/images/ directory as avatar.png. It will override the
+themes avatar image. 

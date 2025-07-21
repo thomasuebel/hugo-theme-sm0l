@@ -1,0 +1,14 @@
+{{ if .Site.Params.author.avatar }}
+    {{ range $i := .Site.Params.faviconSizes }}
+        {{ $source := resources.Get "images/avatar.png" }}
+        {{ $image := $source.Resize (printf "%dx%d CatmullRom" $i $i) }}
+        <link rel="icon" type="image/png" sizes="{{$i}}x{{$i}}" href="{{ $image.Permalink }}" />
+        <!-- Original Image
+        {{ $source.RelPermalink }}
+        -->
+    {{ end }}
+    {{ with resources.Get "images/avatar.png" }}
+        {{ $image := .Resize "180x CatmullRom" }}
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ $image.Permalink }}" />
+    {{ end }}
+{{ end }}
