@@ -161,6 +161,9 @@
   border-bottom: none;
   text-decoration: none;
   transition: color $transition-fast;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     color: $color-text-primary;
