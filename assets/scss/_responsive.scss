@@ -129,6 +129,11 @@
     margin-top: 0.25em;
   }
 
+  .post-image {
+    margin: $spacing-sm 0;
+    border-radius: $border-radius-sm;
+  }
+
   // Pagination Mobile
   .pagination-container {
     flex-direction: column;
@@ -242,6 +247,11 @@
   .post-summary {
     font-size: 1.05rem;
   }
+
+  .post-image {
+    margin: $spacing-lg 0;
+    border-radius: $border-radius-md;
+  }
 }
 
 // Desktop (1025px+)
@@ -314,5 +324,10 @@
   
   footer {
     padding: $spacing-xxl 0 $spacing-lg 0;
+  }
+
+  .post-image {
+    margin: $spacing-lg 0;
+    border-radius: $border-radius-lg;
   }
 }

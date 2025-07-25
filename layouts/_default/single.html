@@ -2,6 +2,12 @@
     <article>
         <h1>{{ .Title }}</h1>
         {{ partial "post-metadata.html" . }}
+        {{ if .Params.summary }}
+            <p class="post-summary">{{ .Params.summary }}</p>
+        {{ end }}
+        {{ if .Params.image }}
+            <img src="{{ .Params.image }}" alt="{{ .Title }}" class="post-image" />
+        {{ end }}
         <section>
             {{ .Content }}
         </section>

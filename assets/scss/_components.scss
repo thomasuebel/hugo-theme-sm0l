@@ -217,6 +217,14 @@
   margin: $spacing-xs 0 0.75em 0;
 }
 
+.post-image {
+  width: 100%;
+  height: auto;
+  margin: $spacing-md 0;
+  border-radius: $border-radius-md;
+  display: block;
+}
+
 .post-meta {
   font-size: $font-size-small;
   color: $color-text-meta;
