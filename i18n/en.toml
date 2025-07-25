@@ -26,5 +26,8 @@
 [powered_by]
   other = "Built with"
 
+[authors_image]
+  other = "Author's image"
+
 [theme]
   other = "theme"
