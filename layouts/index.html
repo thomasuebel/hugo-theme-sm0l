@@ -1,25 +1,26 @@
-<div class="profile-header h-card profile-info">
-    {{ if .Site.Params.author.avatar }}
-        <div class="avatar-container">
-            {{ partial "avatar/avatar-medium.html" . }}
-        </div>
-    {{ end }}
-
-    <div class="profile-text">
-        <h1 class="site-title">{{ .Site.Title }}</h1>
-        {{ if .Site.Params.author.name }}
-            <p class="p-name author-name">{{ .Site.Params.author.name }}</p>
-        {{ end }}
-
-        {{ if isset .Site.Params "social" }}
-            <div class="social-links">
-                {{ partial "social.html" . }}
+{{ define "main" }}
+    <div class="profile-header h-card profile-info">
+        {{ if .Site.Params.author.avatar }}
+            <div class="avatar-container">
+                {{ partial "avatar/avatar-medium.html" . }}
             </div>
         {{ end }}
+
+        <div class="profile-text">
+            <h1 class="site-title">{{ .Site.Title }}</h1>
+            {{ if .Site.Params.author.name }}
+                <p class="p-name author-name">{{ .Site.Params.author.name }}</p>
+            {{ end }}
+
+            {{ if isset .Site.Params "social" }}
+                <div class="social-links">
+                    {{ partial "social.html" . }}
+                </div>
+            {{ end }}
+        </div>
     </div>
-</div>
-<div class="profile-divider"></div>
-{{ define "main" }}
+    <div class="profile-divider"></div>
+
     <section class="posts-section">
         {{ $paginator := .Paginate (where .Site.RegularPages "Section" "blog") }}
         <ul class="posts-list">
