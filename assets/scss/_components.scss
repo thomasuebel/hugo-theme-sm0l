@@ -218,7 +218,7 @@
 }
 
 .post-image {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   margin: $spacing-md 0;
   border-radius: $border-radius-md;
