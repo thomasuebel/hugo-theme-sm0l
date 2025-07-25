@@ -7,7 +7,7 @@
         {{ end }}
         {{ if .Params.image }}
             {{- with .Resources.GetMatch .Params.image }}
-                <img src="{{ .AbsURL }}" alt="{{ $.Title }}" class="post-image" />
+                <img src="{{ .PermaLink }}" alt="{{ $.Title }}" class="post-image" />
             {{- end }}
         {{ end }}
         <section>
