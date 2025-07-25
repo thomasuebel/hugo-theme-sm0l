@@ -18,7 +18,7 @@
 	<meta property="og:type" content="article">
 	<meta property="og:url" content="{{ .Permalink }}">
 	{{- if .Params.image }}
-		<meta property="og:image" content="{{ .Params.image }}">
+		<meta property="og:image" content="{{ .Params.image | absURL }}">
 		<meta property="og:image:alt" content="{{ .Title }}">
 	{{- end }}
 	{{- if .Date }}
@@ -38,7 +38,7 @@
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="{{ .Permalink }}">
 	{{ if .Site.Params.author.avatar }}
-		<meta property="og:image" content="{{ .Site.Params.author.avatar }}">
+		<meta property="og:image" content="{{ .Site.Params.author.avatar | absURL }}">
 		<meta property="og:image:alt" content="{{ i18n "authors_image" }}">
 	{{- end }}
 {{- end }}
