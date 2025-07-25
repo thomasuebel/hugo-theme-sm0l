@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: color $transition-fast;
+}
+
+html {
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+}
+
+body {
+  font-family: $font-body;
+  color: $color-text-body;
+  background-color: $color-background;
+  max-width: $max-width-content;
+  margin: 0 auto;
+  padding: 0 $padding-desktop;
+}
+
+a:focus,
+button:focus {
+  outline: 2px solid $color-accent;
+  outline-offset: 2px;
+}

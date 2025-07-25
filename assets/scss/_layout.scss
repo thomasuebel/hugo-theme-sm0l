@@ -1,0 +1,23 @@
+main {
+  padding: $spacing-lg 0;
+}
+
+footer {
+  padding: $spacing-xxl 0 $spacing-lg 0;
+  border-top: 1px solid $color-border;
+  margin-top: $spacing-xxl;
+  font-family: $font-heading;
+  font-size: $font-size-small;
+  color: $color-text-secondary;
+  text-align: center;
+}
+
+.post-content {
+  margin-top: $spacing-lg;
+
+  p:first-child {
+    font-size: 1.375rem;
+    color: $color-text-primary;
+    margin-bottom: $spacing-md;
+  }
+}

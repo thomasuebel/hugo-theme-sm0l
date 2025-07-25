@@ -1,0 +1,84 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin: $spacing-lg 0 $spacing-sm 0;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: $font-size-h1;
+  margin-bottom: $spacing-xs;
+}
+
+h2 {
+  font-size: $font-size-h2;
+  margin-top: $spacing-xl;
+}
+
+h3 {
+  font-size: $font-size-h3;
+}
+
+h4 {
+  font-size: $font-size-h4;
+}
+
+p {
+  margin: $spacing-md 0;
+  font-size: $font-size-large;
+  line-height: $line-height-base;
+}
+
+a {
+  color: $color-accent;
+  text-decoration: none;
+  border-bottom: 1px solid $color-accent;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $color-accent-dark;
+    border-bottom-color: $color-accent-dark;
+  }
+}
+
+ul, ol {
+  margin: $spacing-md 0;
+  padding-left: $spacing-lg;
+}
+
+li {
+  margin: $spacing-xs 0;
+  font-size: $font-size-large;
+  line-height: $line-height-base;
+}
+
+blockquote {
+  margin: $spacing-lg 0;
+  padding: $spacing-sm $spacing-lg;
+  border-left: 4px solid $color-border-quote;
+  font-style: italic;
+  color: $color-text-secondary;
+  background-color: $color-background-quote;
+}
+
+code {
+  font-family: $font-mono;
+  background-color: $color-background-code;
+  padding: 0.2em 0.4em;
+  border-radius: $border-radius-sm;
+  font-size: 0.9em;
+}
+
+pre {
+  background-color: $color-background-code;
+  padding: $spacing-sm;
+  border-radius: $border-radius-md;
+  overflow-x: auto;
+  margin: $spacing-md 0;
+
+  code {
+    background-color: transparent;
+    padding: 0;
+  }
+}

@@ -1,0 +1,74 @@
+// Colors
+$color-text-primary: #1a1a1a;
+$color-text-secondary: #6b6b6b;
+$color-text-meta: #999999;
+$color-text-muted: #cccccc;
+$color-text-body: #242424;
+
+$color-accent: #1a8917;
+$color-accent-dark: #0f5d0f;
+
+$color-background: #ffffff;
+$color-background-code: #f8f8f8;
+$color-background-quote: #fafafa;
+$color-background-tag: #f0f0f0;
+$color-background-hover: #e0e0e0;
+
+$color-border: #e6e6e6;
+$color-border-quote: #e6e6e6;
+
+// Typography
+$font-body: Georgia, 'Times New Roman', serif;
+$font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+
+$font-size-base: 16px;
+$line-height-base: 1.6;
+
+$font-size-h1: 2.5rem;
+$font-size-h2: 2rem;
+$font-size-h3: 1.5rem;
+$font-size-h4: 1.25rem;
+
+$font-size-large: 1.25rem;
+$font-size-normal: 1rem;
+$font-size-small: 0.9rem;
+$font-size-tiny: 0.85rem;
+
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Spacing
+$spacing-xs: 0.5em;
+$spacing-sm: 1em;
+$spacing-md: 1.5em;
+$spacing-lg: 2em;
+$spacing-xl: 2.5em;
+$spacing-xxl: 3em;
+
+// Layout
+$max-width-content: 680px;
+$max-width-tablet: 720px;
+$padding-mobile: 16px;
+$padding-desktop: 20px;
+$padding-tablet: 40px;
+
+// Border radius
+$border-radius-sm: 3px;
+$border-radius-md: 6px;
+$border-radius-lg: 15px;
+$border-radius-full: 50%;
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-medium: 0.3s ease;
+
+// Breakpoints
+$breakpoint-mobile: 800px;
+$breakpoint-tablet: 1024px;
+$breakpoint-desktop: 1025px;
+
+// Z-index
+$z-nav-dropdown: 1000;
