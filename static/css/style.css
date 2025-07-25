@@ -283,10 +283,7 @@ footer {
     text-align: center;
 }
 
-/* Responsive design - Three viewport sizes */
-
-/* S: iPhone 16 (393px width) and smaller mobile devices */
-@media (max-width: 430px) {
+@media (max-width: 800px) {
     body {
         padding: 0 16px;
         max-width: 100%;
@@ -370,8 +367,7 @@ footer {
     }
 }
 
-/* M: iPad Air (820px width) and tablet devices */
-@media (min-width: 431px) and (max-width: 1024px) {
+@media (min-width: 801px) and (max-width: 1024px) {
     body {
         padding: 0 40px;
         max-width: 720px;
@@ -431,7 +427,6 @@ footer {
     }
 }
 
-/* L: Broader than iPad (desktop and large screens) */
 @media (min-width: 1025px) {
     body {
         padding: 0 20px;
