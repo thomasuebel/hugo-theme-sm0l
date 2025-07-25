@@ -28,7 +28,7 @@
                 <li class="post-item">
                     <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
                     {{ if .Summary }}
-                        <p class="post-summary">{{ .Summary | truncate 150 }}</p>
+                        <p class="post-summary">{{ .Summary }}</p>
                     {{ end }}
                     <div class="post-meta">
                         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
