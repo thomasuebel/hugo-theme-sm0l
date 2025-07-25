@@ -5,7 +5,11 @@
     {{ partial "meta.html" . }}
     <title>
         {{ block "title" . }}
-            {{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}
+            {{ if not .IsHome }}
+                {{ .Title }}
+                    {{ else }}
+                {{ .Site.Title }}
+            {{ end }}
         {{ end }}
     </title>
 </head>
