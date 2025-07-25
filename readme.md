@@ -26,6 +26,14 @@ The theme is built around the idea that the IndieWeb needs all the support it ca
 Author information that you put in your configuration is rendered as an IndieWeb h-card.
 Into your sites index file.
 
+# Base Config
+```
+baseURL = 'https://yourwebsite.com/'
+title = "Your title here"
+theme = 'sm0l'
+enableRobotsTXT = true
+``` 
+
 # Author Information
 ```
 [params.author]
