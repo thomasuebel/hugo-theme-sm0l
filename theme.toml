@@ -4,9 +4,10 @@ licenselink = "https://creativecommons.org/licenses/by/4.0/"
 description = "A minimal blog theme for the indie web"
 homepage = "https://github.com/thomasuebel/hugo-theme-sm0l"
 tags = ["minimal", "light", "blog", "multilingual"]
-features = ["blog", "dark", "multilingual"]
+features = ["blog", "dark", "multilingual", "comments", "intensedebate"]
 min_version = "0.114.0"
 
 [author]
 name = "Thomas Uebel"
 homepage = "https://thomasuebel.de"
+

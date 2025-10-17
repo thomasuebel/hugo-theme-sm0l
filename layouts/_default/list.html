@@ -14,6 +14,13 @@
                         <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
                             {{ .Date.Format "January 2, 2006" }}
                         </time>
+                        {{ if $.Site.Params.intensedebate.acct }}
+                            <span class="comment-count">
+                                <a href="{{ .RelPermalink }}#IDCommentsHead">
+                                    <span class="IDCommentsCount" data-disqus-url="{{ .Permalink }}"></span>
+                                </a>
+                            </span>
+                        {{ end }}
                         {{ with .GetTerms "tags" }}
                             <div class="post-tags">
                                 {{ range . }}
@@ -28,5 +35,14 @@
     </section>
 
     {{ partial "pagination.html" . }}
+
+    {{ if .Site.Params.intensedebate.acct }}
+    <script>
+    var idcomments_acct = '{{ .Site.Params.intensedebate.acct }}';
+    var idcomments_post_id;
+    var idcomments_post_url;
+    </script>
+    <script type='text/javascript' src='https://www.intensedebate.com/js/genericLinkWrapperV2.js'></script>
+    {{ end }}
 {{ end }}
 

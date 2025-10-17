@@ -23,6 +23,13 @@
                 <time datetime="{{ $formattedDate }}">{{ .Date | time.Format ":date_long" }}</time>
             </span>
         {{ end }}
+        {{ if .Site.Params.intensedebate.acct }}
+            <span class="comment-count">
+                <a href="#IDCommentsHead">
+                    <span class="IDCommentsCount" data-disqus-url="{{ .Permalink }}"></span>
+                </a>
+            </span>
+        {{ end }}
     </div>
     
     <!-- Second line: Tags -->

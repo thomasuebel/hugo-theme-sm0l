@@ -44,4 +44,20 @@ avatar = "/images/avatar.png"
 # Avatar
 
 Place your avatar image PNG into your assets/images/ directory as avatar.png. It will override the
-themes avatar image. 
+themes avatar image.
+
+# IntenseDebate Comments
+
+To enable IntenseDebate commenting system, add your IntenseDebate account ID to your hugo.toml:
+
+```
+[params.intensedebate]
+acct = "your_intensedebate_account_id"
+```
+
+Once enabled, comment counts will appear on:
+- Post listing pages (list.html) next to the publication date
+- Individual post pages (post-metadata.html) in the metadata section
+- Full comment threads will appear at the bottom of individual posts
+
+To get your IntenseDebate account ID, sign up at https://intensedebate.com and find your account ID in your dashboard. 
