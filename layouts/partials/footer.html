@@ -4,6 +4,7 @@
     <p>
         © {{ now.Format "2006" }} {{ .Site.Params.author.name }}, {{ i18n "powered_by" }}
         <a href="https://gohugo.io">Hugo</a> {{ i18n "and" }}
-        <a href="https://github.com/thomasuebel/hugo-theme-sm0l">Sm0l</a> {{ i18n "theme" }}
+        <a href="https://github.com/thomasuebel/hugo-theme-sm0l">Sm0l</a> {{ i18n "theme" }}.
+        {{- with $.OutputFormats.Get "RSS" }} <a href="{{ .Permalink }}">RSS feed</a> available.{{- end }}
     </p>
 {{ end }}
