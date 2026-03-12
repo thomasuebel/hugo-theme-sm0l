@@ -276,6 +276,12 @@
   font-size: $font-size-small;
 }
 
+.post-meta-line .p-author {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
 .author-avatar {
   display: inline-flex;
   align-items: center;
