@@ -5,22 +5,26 @@
     {{ else if .Site.Params.author.name }}
         {{ $author = .Site.Params.author.name }}
     {{ end }}
-    
+
     <!-- First line: Avatar, Author, Reading Time, Date -->
     <div class="post-meta-line">
-        {{ if and $author .Site.Params.author.avatar }}
-            <span class="author-avatar">{{ partial "avatar/avatar-small.html" . }}</span>
-        {{ end }}
-        {{ if $author }}
-            <span class="author-name">{{ $author }}</span>
-        {{ end }}
+        {{- if or $author .Site.Params.author.avatar }}
+            <span class="p-author h-card">
+                {{- if .Site.Params.author.avatar }}
+                    <span class="author-avatar">{{ partial "avatar/avatar-small.html" . }}</span>
+                {{- end }}
+                {{- if $author }}
+                    <span class="author-name p-name">{{ $author }}</span>
+                {{- end }}
+            </span>
+        {{- end }}
         {{ if .Site.Params.readingTime | default true }}
             <span class="reading-time">{{ i18n "reading_time_desc" .ReadingTime }}</span>
         {{ end }}
         {{ if .Site.Params.published | default true }}
             <span class="publish-date">
                 {{ $formattedDate := .Date.Format "2006-01-02" }}
-                <time datetime="{{ $formattedDate }}">{{ .Date | time.Format ":date_long" }}</time>
+                <time class="dt-published" datetime="{{ $formattedDate }}">{{ .Date | time.Format ":date_long" }}</time>
             </span>
         {{ end }}
         {{ if .Site.Params.intensedebate.acct }}
@@ -31,16 +35,16 @@
             </span>
         {{ end }}
     </div>
-    
+
     <!-- Second line: Tags -->
     {{ with .GetTerms "tags" }}
         <div class="post-tags-line">
             {{ range . }}
-                <a href="{{ .RelPermalink }}" class="tag-link">#{{ .LinkTitle }}</a>
+                <a href="{{ .RelPermalink }}" class="tag-link p-category">#{{ .LinkTitle }}</a>
             {{ end }}
         </div>
     {{ end }}
-    
+
     <!-- Keep other metadata for backward compatibility -->
     {{ with .GetTerms "authors" }}
         <dl style="display: none;">

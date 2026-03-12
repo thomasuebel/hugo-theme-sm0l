@@ -383,3 +383,147 @@
   font-weight: $font-weight-semibold;
   font-size: $font-size-small;
 }
+
+// Webmentions
+.webmentions {
+  margin-top: $spacing-xxl;
+  padding-top: $spacing-lg;
+  border-top: 1px solid $color-border;
+}
+
+.wm-heading {
+  font-size: $font-size-h4;
+  font-family: $font-heading;
+  color: $color-text-primary;
+  margin: $spacing-lg 0 $spacing-sm 0;
+}
+
+// Reactions facepile
+.wm-reactions {
+  margin-bottom: $spacing-lg;
+}
+
+.wm-facepile {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-sm;
+}
+
+.wm-facepile-label {
+  font-family: $font-heading;
+  font-size: $font-size-small;
+  color: $color-text-meta;
+  white-space: nowrap;
+}
+
+.wm-faces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.wm-face {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: $border-radius-full;
+  overflow: hidden;
+  border: none;
+  text-decoration: none;
+  transition: transform $transition-fast;
+
+  &:hover {
+    transform: scale(1.15);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.wm-face--no-photo {
+  background-color: $color-background-tag;
+  color: $color-text-secondary;
+  font-family: $font-heading;
+  font-size: $font-size-tiny;
+  font-weight: $font-weight-semibold;
+}
+
+// Webmention comments
+.wm-comment-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wm-comment {
+  padding: $spacing-sm 0;
+  border-bottom: 1px solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.wm-comment-header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-xs;
+}
+
+.wm-comment-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: $border-radius-full;
+  object-fit: cover;
+}
+
+.wm-comment-author {
+  font-family: $font-heading;
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  text-decoration: none;
+  border-bottom: none;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.wm-comment-date {
+  font-family: $font-heading;
+  font-size: $font-size-tiny;
+  color: $color-text-meta;
+
+  &::before {
+    content: "\00b7";
+    margin-right: $spacing-xs;
+    color: $color-text-muted;
+  }
+}
+
+.wm-comment-body {
+  font-size: $font-size-small;
+  color: $color-text-secondary;
+  line-height: $line-height-base;
+  margin: 0 0 $spacing-xs 0;
+}
+
+.wm-comment-source {
+  font-family: $font-heading;
+  font-size: $font-size-tiny;
+  color: $color-text-meta;
+  text-decoration: none;
+  border-bottom: none;
+
+  &:hover {
+    color: $color-accent;
+  }
+}

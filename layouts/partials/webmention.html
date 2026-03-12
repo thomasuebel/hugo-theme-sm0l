@@ -1,0 +1,5 @@
+<section class="webmentions">
+    <div id="webmentions" data-page-url="{{ .Permalink }}"{{ with .Site.Params.webmention.token }} data-token="{{ . }}"{{ end }}></div>
+    {{ $js := resources.Get "js/webmention.js" | resources.Minify }}
+    <script src="{{ $js.Permalink }}" defer></script>
+</section>
