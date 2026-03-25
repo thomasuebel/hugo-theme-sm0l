@@ -11,6 +11,13 @@
             {{ if .Site.Params.author.name }}
                 <p class="p-name author-name">{{ .Site.Params.author.name }}</p>
             {{ end }}
+            <a class="u-url" href="{{ .Site.BaseURL | absURL }}" style="display:none">{{ .Site.Params.author.name }}</a>
+            {{ if .Site.Params.author.email }}
+                <a class="u-email" href="mailto:{{ .Site.Params.author.email }}" style="display:none">{{ .Site.Params.author.email }}</a>
+            {{ end }}
+            {{ if .Site.Params.author.bio }}
+                <p class="p-note" style="display:none">{{ .Site.Params.author.bio }}</p>
+            {{ end }}
 
             {{ if isset .Site.Params "social" }}
                 <div class="social-links">

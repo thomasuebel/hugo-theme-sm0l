@@ -39,6 +39,9 @@ enableRobotsTXT = true
 [params.author]
 name = "your name"
 avatar = "/images/avatar.png"
+bio = "Short bio or description"          # optional, hidden p-note in h-card (machine-readable only)
+email = "you@example.com"                 # optional, hidden u-email in h-card (machine-readable only)
+cv = "/files/cv.pdf"                      # optional, emits <link rel="cv"> in <head>
 ```
 
 # Avatar
