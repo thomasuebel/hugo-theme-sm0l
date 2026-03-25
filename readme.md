@@ -103,4 +103,51 @@ Webmention and IntenseDebate are independent. You can enable one, the other, or 
 
 ## Microformats
 
-When webmention is enabled, blog posts are automatically marked up with [Microformats2](https://microformats.org) classes (`h-entry`, `p-name`, `e-content`, `dt-published`, `p-author`, `u-url`, `p-category`). This means when you link to someone else's post, their site can parse rich author and content information from yours — making your outbound webmentions more useful across the indie web.
+Blog posts are marked up with [Microformats2](https://microformats.org) h-entry properties:
+
+| Property | Where | Description |
+|---|---|---|
+| `h-entry` | `<article>` | Marks the post as an h-entry |
+| `p-name` | post title | Name of the post |
+| `e-content` | post body | Full content of the post |
+| `dt-published` | publish date | ISO8601 datetime with timezone |
+| `u-url` | hidden link | Canonical URL of the post |
+| `p-author h-card` | post metadata | Nested author card |
+| `p-category` | tag links | Post tags |
+| `p-summary` | summary | Post summary if present |
+| `u-in-reply-to` | hidden link | URL this post replies to (see below) |
+
+This means when you link to someone else's post, their site can parse rich author and content information from yours — making your outbound webmentions more useful across the indie web.
+
+# Reply Posts (u-in-reply-to)
+
+To mark a post as a reply to another URL, add `in_reply_to` to the post's front matter. This renders as a hidden `<a class="u-in-reply-to" rel="in-reply-to">` inside the h-entry, readable by webmention and microformat parsers but not shown to readers.
+
+Single reply:
+
+```toml
++++
+title = "Thoughts on your post"
+date = 2026-03-25T14:00:00+01:00
+in_reply_to = "https://example.com/some-post"
++++
+
+My response here...
+```
+
+Reply to multiple posts:
+
+```toml
++++
+title = "Responding to both of you"
+date = 2026-03-25T14:00:00+01:00
+in_reply_to = [
+  "https://alice.example/post-one",
+  "https://bob.example/post-two"
+]
++++
+
+My response here...
+```
+
+When webmention is configured, sending a webmention to the target URL(s) will notify those sites that you have replied.
