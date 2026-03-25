@@ -3,15 +3,15 @@
     <section class="posts-section">
         <ul class="posts-list">
             {{ range .Paginator.Pages }}
-                <li class="post-item">
+                <li class="post-item h-entry">
                     <h3>
-                        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                        <a href="{{ .RelPermalink }}" class="p-name u-url">{{ .LinkTitle }}</a>
                     </h3>
                     {{ if .Summary }}
-                        <p class="post-summary">{{ .Summary }}</p>
+                        <p class="post-summary p-summary">{{ .Summary }}</p>
                     {{ end }}
                     <div class="post-meta">
-                        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                        <time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
                             {{ .Date.Format "January 2, 2006" }}
                         </time>
                         {{ if $.Site.Params.intensedebate.acct }}
