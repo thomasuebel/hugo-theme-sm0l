@@ -397,6 +397,20 @@
   border-top: 1px solid $color-border;
 }
 
+.wm-intro {
+  font-size: $font-size-small;
+  color: $color-text-meta;
+  margin-bottom: $spacing-lg;
+
+  p {
+    margin: 0 0 $spacing-xs 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 .wm-heading {
   font-size: $font-size-h4;
   font-family: $font-heading;

@@ -81,6 +81,7 @@ Static sites can't receive POST requests directly, so the theme integrates with 
 [params.webmention]
 domain = "yourdomain.com"
 token = "your_webmention_io_api_token"
+intro = true   # optional, default true — shows an IndieWeb intro when a post has no webmentions yet
 ```
 
 You can find your API token on your [webmention.io settings page](https://webmention.io/settings) after signing in.

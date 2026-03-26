@@ -1,4 +1,11 @@
 <section class="webmentions">
+    {{ if ne .Site.Params.webmention.intro false }}
+    <div id="wm-intro" class="wm-intro">
+        <p>This post supports <a href="https://indieweb.org/Webmention">Webmention</a> — an open standard for replies, likes, and reposts across the indie web.</p>
+        <p>To respond from your own site: publish a post that links to this one, then send a webmention using a tool like <a href="https://telegraph.p3k.io">Telegraph</a> or <a href="https://webmention.app">webmention.app</a>. Your response will appear here.</p>
+        <p>New to the IndieWeb? <a href="https://indieweb.org/Getting_Started">Get started at IndieWeb.org</a> or try out your setup at <a href="https://webmention.rocks">Webmention.rocks</a>.</p>
+    </div>
+    {{ end }}
     <div id="webmentions" data-page-url="{{ .Permalink }}"{{ with .Site.Params.webmention.token }} data-token="{{ . }}"{{ end }}></div>
     {{ $js := resources.Get "js/webmention.js" | resources.Minify }}
     <script src="{{ $js.Permalink }}" defer></script>

@@ -20,6 +20,9 @@
   function render(mentions) {
     if (!mentions.length) return;
 
+    var intro = document.getElementById('wm-intro');
+    if (intro) intro.hidden = true;
+
     var reactions = [];
     var comments = [];
 
