@@ -7,7 +7,12 @@
         {{ end }}
         {{ if .Params.image }}
             {{- with .Resources.GetMatch .Params.image }}
-                <img src="{{ .Permalink }}" alt="{{ $.Title }}" class="post-image u-photo" />
+                {{ $orig := .Resize "1360x" }}
+                {{ $webp := $orig.Process "webp" }}
+                <picture>
+                    <source srcset="{{ $webp.Permalink }}" type="image/webp">
+                    <img src="{{ $orig.Permalink }}" alt="{{ $.Title }}" class="post-image u-photo" loading="lazy" width="{{ $orig.Width }}" height="{{ $orig.Height }}" />
+                </picture>
             {{- end }}
         {{ end }}
         <section class="e-content">

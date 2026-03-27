@@ -152,3 +152,29 @@ My response here...
 ```
 
 When webmention is configured, sending a webmention to the target URL(s) will notify those sites that you have replied.
+
+# Performance
+
+## Apache: caching
+
+The theme's CSS is fingerprinted (content hash in the filename), which means the file can be cached indefinitely — the URL changes automatically whenever the CSS changes. To take advantage of this, configure your Apache server to set long cache headers for static assets.
+
+Add the following to your site's `.htaccess` or vhost config:
+
+```apache
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css                  "access plus 1 year"
+    ExpiresByType application/javascript    "access plus 1 year"
+    ExpiresByType image/webp                "access plus 1 year"
+    ExpiresByType image/png                 "access plus 1 year"
+    ExpiresByType image/jpeg                "access plus 1 year"
+</IfModule>
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|webp|png|jpg|jpeg|woff2)$">
+        Header set Cache-Control "max-age=31536000, immutable"
+    </FilesMatch>
+</IfModule>
+```
+
+This is safe because Hugo will never serve a cached stale CSS file — a changed stylesheet always gets a new URL.
