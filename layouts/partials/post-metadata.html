@@ -55,4 +55,13 @@
             {{ partial "taxonomy/categories.html" . }}
         </dl>
     {{ end }}
+    {{- with .Params.in_reply_to }}
+        {{- if reflect.IsSlice . }}
+            {{- range . }}
+                <a class="u-in-reply-to" rel="in-reply-to" href="{{ . | safeURL }}" hidden></a>
+            {{- end }}
+        {{- else }}
+            <a class="u-in-reply-to" rel="in-reply-to" href="{{ . | safeURL }}" hidden></a>
+        {{- end }}
+    {{- end }}
 </section>

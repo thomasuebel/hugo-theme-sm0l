@@ -49,6 +49,15 @@
 <meta name="twitter:description" content="{{ .Description | default .Summary | default .Site.Params.SiteDescription | default .Site.Title }}">
 
 <link rel="canonical" href="{{ .Permalink }}">
+{{- with .Params.in_reply_to }}
+	{{- if reflect.IsSlice . }}
+		{{- range . }}
+			<link rel="in-reply-to" href="{{ . | safeURL }}">
+		{{- end }}
+	{{- else }}
+		<link rel="in-reply-to" href="{{ . | safeURL }}">
+	{{- end }}
+{{- end }}
 {{- if and .IsHome .Site.Params.author.cv }}
 	<link rel="cv" href="{{ .Site.Params.author.cv | absURL }}">
 {{- end }}
