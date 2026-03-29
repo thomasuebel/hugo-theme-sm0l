@@ -56,12 +56,14 @@
         </dl>
     {{ end }}
     {{- with .Params.in_reply_to }}
-        {{- if reflect.IsSlice . }}
-            {{- range . }}
-                <a class="u-in-reply-to" rel="in-reply-to" href="{{ . | safeURL }}" hidden></a>
+        <div class="post-in-reply-to" hidden>
+            {{- if reflect.IsSlice . }}
+                {{- range . }}
+                    <a class="u-in-reply-to" rel="in-reply-to" href="{{ . | safeURL }}">{{ (urls.Parse .).Host }}</a>
+                {{- end }}
+            {{- else }}
+                <a class="u-in-reply-to" rel="in-reply-to" href="{{ . | safeURL }}">{{ (urls.Parse .).Host }}</a>
             {{- end }}
-        {{- else }}
-            <a class="u-in-reply-to" rel="in-reply-to" href="{{ . | safeURL }}" hidden></a>
-        {{- end }}
+        </div>
     {{- end }}
 </section>
