@@ -1,0 +1,70 @@
+{{- $analytics := .Site.Params.analytics -}}
+{{- if and $analytics $analytics.provider $analytics.events -}}
+{{- $events := $analytics.events -}}
+{{- if or $events.headlineClicks $events.tagClicks $events.navClicks $events.socialClicks $events.paginationClicks $events.replyToClicks $events.commentClicks $events.rssClicks -}}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function trackEvent(name, props) {
+        if (typeof umami !== 'undefined') umami.track(name, props);
+        else if (typeof plausible !== 'undefined') plausible(name, { props: props });
+    }
+
+    function attachClickTracking(selector, eventName, propsFunc) {
+        document.querySelectorAll(selector).forEach(function(el) {
+            el.addEventListener('click', function() {
+                trackEvent(eventName, propsFunc(el));
+            });
+        });
+    }
+
+    {{ if $events.headlineClicks -}}
+    attachClickTracking('.posts-list .post-item h3 a', 'headline-click', function(el) {
+        return { title: el.textContent.trim(), url: el.getAttribute('href') };
+    });
+    {{ end -}}
+
+    {{ if $events.tagClicks -}}
+    attachClickTracking('a.tag-link', 'tag-click', function(el) {
+        return { tag: el.textContent.trim(), url: el.getAttribute('href') };
+    });
+    {{ end -}}
+
+    {{ if $events.navClicks -}}
+    attachClickTracking('nav a', 'nav-click', function(el) {
+        return { label: el.textContent.trim(), url: el.getAttribute('href') };
+    });
+    {{ end -}}
+
+    {{ if $events.socialClicks -}}
+    attachClickTracking('a.social-link', 'social-click', function(el) {
+        return { name: (el.getAttribute('aria-label') || el.textContent).trim(), url: el.getAttribute('href') };
+    });
+    {{ end -}}
+
+    {{ if $events.paginationClicks -}}
+    attachClickTracking('a.pagination-link', 'pagination-click', function(el) {
+        return { label: (el.getAttribute('aria-label') || el.textContent).trim(), url: el.getAttribute('href') };
+    });
+    {{ end -}}
+
+    {{ if $events.replyToClicks -}}
+    attachClickTracking('a.u-in-reply-to', 'reply-to-click', function(el) {
+        return { host: el.textContent.trim(), url: el.getAttribute('href') };
+    });
+    {{ end -}}
+
+    {{ if $events.commentClicks -}}
+    attachClickTracking('a[href$="#IDCommentsHead"]', 'comment-click', function(el) {
+        return { url: el.getAttribute('href') };
+    });
+    {{ end -}}
+
+    {{ if $events.rssClicks -}}
+    attachClickTracking('a[href$="/index.xml"]', 'rss-click', function(el) {
+        return { url: el.getAttribute('href') };
+    });
+    {{ end -}}
+});
+</script>
+{{- end -}}
+{{- end -}}

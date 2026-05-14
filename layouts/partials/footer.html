@@ -8,3 +8,4 @@
         {{- with $.OutputFormats.Get "RSS" }} <a href="{{ .Permalink }}">RSS feed</a> available.{{- end }}
     </p>
 {{ end }}
+{{ partial "analytics-events.html" . }}
