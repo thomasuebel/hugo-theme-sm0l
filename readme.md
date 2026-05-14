@@ -153,6 +153,47 @@ My response here...
 
 When webmention is configured, sending a webmention to the target URL(s) will notify those sites that you have replied.
 
+# Analytics Event Tracking
+
+The theme has built-in support for click event tracking with **Umami** or **Plausible** as analytics providers. The analytics script itself must already be loaded by your site (e.g. in `layouts/partials/custom-head.html`). This feature only fires events into the provider that is already present on the page.
+
+## Configuration
+
+Add the following to your `hugo.toml`. All events are opt-in — only enabled events will be tracked.
+
+```toml
+[params.analytics]
+    provider = "umami"  # or "plausible" or "" (disabled)
+    [params.analytics.events]
+        headlineClicks = true   # post title links on list pages
+        tagClicks = true        # tag links (e.g. #hugo, #indieweb)
+        navClicks = true        # navigation menu links
+        socialClicks = true     # social/profile links
+        paginationClicks = true # pagination prev/next/page number links
+        replyToClicks = true    # "in reply to" links on posts
+        commentClicks = true    # comment count links
+        rssClicks = true        # RSS feed link in footer
+```
+
+Set `provider` to your analytics tool. Omit or set to `""` to disable all tracking. Each event flag can be independently set to `true` or `false` (or omitted to disable).
+
+## Events Reference
+
+| Event | Event Name | Properties |
+|---|---|---|
+| Headline clicks | `headline-click` | `title`, `url` |
+| Tag clicks | `tag-click` | `tag`, `url` |
+| Navigation clicks | `nav-click` | `label`, `url` |
+| Social clicks | `social-click` | `name`, `url` |
+| Pagination clicks | `pagination-click` | `label`, `url` |
+| Reply-to clicks | `reply-to-click` | `host`, `url` |
+| Comment clicks | `comment-click` | `url` |
+| RSS clicks | `rss-click` | `url` |
+
+## Privacy Note
+
+This feature does not set cookies, load additional scripts, or collect personal data. It sends event data to an analytics provider (Umami or Plausible) that you have already loaded on your site. Both providers are designed to be cookieless and are generally considered consent-free under the EU ePrivacy Directive. However, site owners should disclose the use of analytics and event tracking in their privacy policy.
+
 # Performance
 
 ## Apache: caching
