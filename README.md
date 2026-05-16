@@ -55,6 +55,10 @@ seoTitle = "Thomas Uebel — Software Engineer & Engineering Leader (Berlin)"
 
 When `seoTitle` is not set, the homepage falls back to `site.Title`. Inner pages always render as `Page Title — Author Name` (falling back to `site.Title` if no author name is configured).
 
+# Author Byline Link
+
+The author name in blog post metadata links to `/about/` with `rel="author"`. This creates an internal link signal from every post to the about page, helping search engines associate content with the author entity. No configuration needed — it works automatically when `params.author.name` is set.
+
 # Avatar
 
 Place your avatar image PNG into your assets/images/ directory as avatar.png. It will override the

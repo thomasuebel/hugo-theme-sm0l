@@ -14,7 +14,7 @@
                     <span class="author-avatar">{{ partial "avatar/avatar-small.html" . }}</span>
                 {{- end }}
                 {{- if $author }}
-                    <span class="author-name p-name">{{ $author }}</span>
+                    <a href="/about/" class="author-name p-name" rel="author">{{ $author }}</a>
                 {{- end }}
             </span>
         {{- end }}
