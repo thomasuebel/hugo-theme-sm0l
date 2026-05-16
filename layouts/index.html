@@ -7,7 +7,7 @@
         {{ end }}
 
         <div class="profile-text">
-            <h1 class="site-title">{{ .Site.Title }}</h1>
+            <h1 class="site-title">{{ .Site.Params.homepageHeading | default .Site.Title }}</h1>
             {{ if .Site.Params.author.name }}
                 <p class="p-name author-name">{{ .Site.Params.author.name }}</p>
             {{ end }}

@@ -86,6 +86,17 @@ showBio = false
 
 When `showBio` is `false`, the bio is still present in the HTML (for h-card/microformats parsers) but visually hidden. The default is `true` (visible).
 
+# Homepage Heading
+
+The homepage `<h1>` defaults to `site.Title`. To set a different H1 (e.g. your name) without changing the nav bar title:
+
+```toml
+[params]
+homepageHeading = "Thomas Uebel"
+```
+
+This lets you keep a creative site title in the navigation while using a semantically meaningful H1 for search engines.
+
 # Avatar
 
 Place your avatar image PNG into your assets/images/ directory as avatar.png. It will override the
