@@ -16,7 +16,7 @@
                 <a class="u-email" href="mailto:{{ .Site.Params.author.email }}" style="display:none">{{ .Site.Params.author.email }}</a>
             {{ end }}
             {{ if .Site.Params.author.bio }}
-                <p class="p-note" style="display:none">{{ .Site.Params.author.bio }}</p>
+                <p class="p-note{{ if not (.Site.Params.showBio | default true) }} visually-hidden{{ end }}">{{ .Site.Params.author.bio }}</p>
             {{ end }}
 
             {{ if isset .Site.Params "social" }}

@@ -39,7 +39,7 @@ enableRobotsTXT = true
 [params.author]
 name = "your name"
 avatar = "/images/avatar.png"
-bio = "Short bio or description"          # optional, hidden p-note in h-card (machine-readable only)
+bio = "Short bio or description"          # optional, visible on homepage (see below)
 email = "you@example.com"                 # optional, hidden u-email in h-card (machine-readable only)
 cv = "/files/cv.pdf"                      # optional, emits <link rel="cv"> in <head>
 ```
@@ -74,6 +74,17 @@ Or set `lastmod` manually in post front matter:
 ```toml
 lastmod = 2026-05-10
 ```
+
+# Visible Bio on Homepage
+
+The author bio (`params.author.bio`) is displayed visibly on the homepage below the author name. This gives search engines above-the-fold disambiguating text about the site owner. To hide the bio while keeping it accessible to screen readers:
+
+```toml
+[params]
+showBio = false
+```
+
+When `showBio` is `false`, the bio is still present in the HTML (for h-card/microformats parsers) but visually hidden. The default is `true` (visible).
 
 # Avatar
 
