@@ -29,7 +29,7 @@ Into your sites index file.
 # Base Config
 ```
 baseURL = 'https://yourwebsite.com/'
-title = "Your title here"
+title = "That's good enough"              # blog name — shown in nav bar and as subtitle on homepage
 theme = 'sm0l'
 enableRobotsTXT = true
 ``` 
@@ -37,7 +37,7 @@ enableRobotsTXT = true
 # Author Information
 ```
 [params.author]
-name = "your name"
+name = "your name"                        # used in homepage h1 ("{name}'s Blog"), post bylines, and <title> suffix
 avatar = "/images/avatar.png"
 bio = "Short bio or description"          # optional, visible on homepage (see below)
 email = "you@example.com"                 # optional, hidden u-email in h-card (machine-readable only)
