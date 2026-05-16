@@ -15,6 +15,11 @@
                 </picture>
             {{- end }}
         {{ end }}
+        {{ if and .Lastmod (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
+            <p class="post-updated">
+                Updated <time class="dt-updated" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Lastmod | time.Format ":date_long" }}</time>
+            </p>
+        {{ end }}
         <section class="e-content">
             {{ .Content }}
         </section>

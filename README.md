@@ -59,6 +59,22 @@ When `seoTitle` is not set, the homepage falls back to `site.Title`. Inner pages
 
 The author name in blog post metadata links to `/about/` with `rel="author"`. This creates an internal link signal from every post to the about page, helping search engines associate content with the author entity. No configuration needed — it works automatically when `params.author.name` is set.
 
+# Last Updated Date
+
+Blog posts display a visible "Updated" date when `.Lastmod` differs from `.Date`. This gives search engines a visible `dateModified` signal in addition to any structured data. The date is rendered as a `<time class="dt-updated">` element for Microformats compatibility.
+
+To populate `.Lastmod`, either enable git-based dates in your `hugo.toml`:
+
+```toml
+enableGitInfo = true
+```
+
+Or set `lastmod` manually in post front matter:
+
+```toml
+lastmod = 2026-05-10
+```
+
 # Avatar
 
 Place your avatar image PNG into your assets/images/ directory as avatar.png. It will override the
