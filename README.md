@@ -88,14 +88,16 @@ When `showBio` is `false`, the bio is still present in the HTML (for h-card/micr
 
 # Homepage Heading
 
-The homepage `<h1>` defaults to `site.Title`. To set a different H1 (e.g. your name) without changing the nav bar title:
+The homepage `<h1>` defaults to `"{author.name}'s Blog"` (e.g. "Thomas Uebel's Blog"). Below it, `site.Title` is displayed as the blog name subtitle. The nav bar also shows `site.Title`.
+
+To override the H1:
 
 ```toml
 [params]
-homepageHeading = "Thomas Uebel"
+homepageHeading = "Custom Heading Here"
 ```
 
-This lets you keep a creative site title in the navigation while using a semantically meaningful H1 for search engines.
+The `<h1>` carries the `p-name` microformat class (part of the h-card), since it identifies the author. The blog name subtitle has no microformat semantics.
 
 # JSON-LD Structured Data
 

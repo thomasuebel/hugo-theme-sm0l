@@ -7,10 +7,8 @@
         {{ end }}
 
         <div class="profile-text">
-            <h1 class="site-title">{{ .Site.Params.homepageHeading | default .Site.Title }}</h1>
-            {{ if .Site.Params.author.name }}
-                <p class="p-name author-name">{{ .Site.Params.author.name }}</p>
-            {{ end }}
+            <h1 class="site-title p-name">{{ .Site.Params.homepageHeading | default (printf "%s's Blog" .Site.Params.author.name) }}</h1>
+            <p class="blog-name">{{ .Site.Title }}</p>
             <a class="u-url" href="{{ .Site.BaseURL | absURL }}" style="display:none">{{ .Site.Params.author.name }}</a>
             {{ if .Site.Params.author.email }}
                 <a class="u-email" href="mailto:{{ .Site.Params.author.email }}" style="display:none">{{ .Site.Params.author.email }}</a>
