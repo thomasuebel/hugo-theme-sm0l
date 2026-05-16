@@ -1,7 +1,7 @@
 {
   "@type": "WebSite",
   "@id": "{{ .Site.BaseURL }}#website",
-  "name": "{{ .Site.Title }}",
+  "name": {{ .Site.Title | jsonify }},
   "url": "{{ .Site.BaseURL }}",
   "publisher": {
     "@id": "{{ .Site.BaseURL }}#person"

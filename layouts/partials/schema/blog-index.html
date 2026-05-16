@@ -1,6 +1,6 @@
 {
   "@type": "CollectionPage",
-  "name": "{{ .Title | default "Blog" }}",
+  "name": {{ (.Title | default "Blog") | jsonify }},
   "url": "{{ .Permalink }}",
   "publisher": {
     "@id": "{{ .Site.BaseURL }}#person"

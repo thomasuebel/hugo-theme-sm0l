@@ -3,15 +3,15 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-    {{ partial "schema/person.html" . }},
+    {{ partial "schema/person.html" . | safeJS }},
     {{- if .IsHome }}
-    {{ partial "schema/website.html" . }}
+    {{ partial "schema/website.html" . | safeJS }}
     {{- else if eq .RelPermalink "/about/" }}
-    {{ partial "schema/aboutpage.html" . }}
+    {{ partial "schema/aboutpage.html" . | safeJS }}
     {{- else if and (eq .Kind "section") (eq .Type "blog") }}
-    {{ partial "schema/blog-index.html" . }}
+    {{ partial "schema/blog-index.html" . | safeJS }}
     {{- else if eq .Kind "page" }}
-    {{ partial "schema/blogposting.html" . }}
+    {{ partial "schema/blogposting.html" . | safeJS }}
     {{- end }}
   ]
 }

@@ -1,6 +1,6 @@
 {
   "@type": "BlogPosting",
-  "headline": "{{ .Title }}",
+  "headline": {{ .Title | jsonify }},
   "url": "{{ .Permalink }}",
   "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}"
   {{- if and .Lastmod (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }},
@@ -14,9 +14,9 @@
   },
   "mainEntityOfPage": "{{ .Permalink }}"
   {{- if .Description }},
-  "description": "{{ .Description }}"
+  "description": {{ .Description | jsonify }}
   {{- end }}
   {{- if .Params.tags }},
-  "keywords": [{{ range $i, $v := .Params.tags }}{{ if $i }}, {{ end }}"{{ $v }}"{{ end }}]
+  "keywords": {{ .Params.tags | jsonify }}
   {{- end }}
 }

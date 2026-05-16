@@ -2,40 +2,40 @@
 {
   "@type": "Person",
   "@id": "{{ .Site.BaseURL }}#person",
-  "name": "{{ $schema.givenName }} {{ $schema.familyName }}",
-  "givenName": "{{ $schema.givenName }}",
-  "familyName": "{{ $schema.familyName }}",
+  "name": {{ printf "%s %s" $schema.givenName $schema.familyName | jsonify }},
+  "givenName": {{ $schema.givenName | jsonify }},
+  "familyName": {{ $schema.familyName | jsonify }},
   "url": "{{ .Site.BaseURL }}"
   {{- if $schema.jobTitle }},
-  "jobTitle": "{{ $schema.jobTitle }}"
+  "jobTitle": {{ $schema.jobTitle | jsonify }}
   {{- end }}
   {{- if $schema.description }},
-  "description": "{{ $schema.description }}"
+  "description": {{ $schema.description | jsonify }}
   {{- end }}
   {{- if or $schema.addressLocality $schema.addressCountry }},
   "address": {
     "@type": "PostalAddress"
     {{- if $schema.addressLocality }},
-    "addressLocality": "{{ $schema.addressLocality }}"
+    "addressLocality": {{ $schema.addressLocality | jsonify }}
     {{- end }}
     {{- if $schema.addressCountry }},
-    "addressCountry": "{{ $schema.addressCountry }}"
+    "addressCountry": {{ $schema.addressCountry | jsonify }}
     {{- end }}
   }
   {{- end }}
   {{- if $schema.knowsAbout }},
-  "knowsAbout": [{{ range $i, $v := $schema.knowsAbout }}{{ if $i }}, {{ end }}"{{ $v }}"{{ end }}]
+  "knowsAbout": {{ $schema.knowsAbout | jsonify }}
   {{- end }}
   {{- if $schema.sameAs }},
-  "sameAs": [{{ range $i, $v := $schema.sameAs }}{{ if $i }}, {{ end }}"{{ $v }}"{{ end }}]
+  "sameAs": {{ $schema.sameAs | jsonify }}
   {{- end }}
   {{- if $schema.alumniOf }},
   "alumniOf": [
     {{- range $i, $v := $schema.alumniOf }}{{ if $i }}, {{ end }}{
       "@type": "Organization",
-      "name": "{{ $v.name }}"
+      "name": {{ $v.name | jsonify }}
       {{- if $v.url }},
-      "url": "{{ $v.url }}"
+      "url": {{ $v.url | jsonify }}
       {{- end }}
     }
     {{- end }}
