@@ -44,6 +44,17 @@ email = "you@example.com"                 # optional, hidden u-email in h-card (
 cv = "/files/cv.pdf"                      # optional, emits <link rel="cv"> in <head>
 ```
 
+# SEO Title
+
+By default, the homepage `<title>` uses `site.Title` and inner pages show their page title followed by the author name (e.g. "My Post — Thomas Uebel"). You can override the homepage title for search engines without affecting the nav bar or h1:
+
+```toml
+[params]
+seoTitle = "Thomas Uebel — Software Engineer & Engineering Leader (Berlin)"
+```
+
+When `seoTitle` is not set, the homepage falls back to `site.Title`. Inner pages always render as `Page Title — Author Name` (falling back to `site.Title` if no author name is configured).
+
 # Avatar
 
 Place your avatar image PNG into your assets/images/ directory as avatar.png. It will override the

@@ -5,10 +5,10 @@
     {{ partial "meta.html" . }}
     <title>
         {{ block "title" . }}
-            {{ if not .IsHome }}
-                {{ .Title }}
-                    {{ else }}
-                {{ .Site.Title }}
+            {{ if .IsHome }}
+                {{ .Site.Params.seoTitle | default .Site.Title }}
+            {{ else }}
+                {{ .Title }} — {{ .Site.Params.author.name | default .Site.Title }}
             {{ end }}
         {{ end }}
     </title>
