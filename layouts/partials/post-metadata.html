@@ -24,6 +24,9 @@
         {{ if .Site.Params.published | default true }}
             <span class="publish-date">
                 <time class="dt-published" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date | time.Format ":date_long" }}</time>
+                {{- if and .Lastmod (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }}
+                    (last updated: <time class="dt-updated" datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Lastmod | time.Format ":date_long" }}</time>)
+                {{- end }}
             </span>
         {{ end }}
         {{ if .Site.Params.intensedebate.acct }}

@@ -61,7 +61,7 @@ The author name in blog post metadata links to `/about/` with `rel="author"`. Th
 
 # Last Updated Date
 
-Blog posts display a visible "Updated" date when `.Lastmod` differs from `.Date`. This gives search engines a visible `dateModified` signal in addition to any structured data. The date is rendered as a `<time class="dt-updated">` element for Microformats compatibility.
+When a post's `.Lastmod` differs from `.Date`, the last-updated date is shown inline next to the publish date in the post metadata, e.g. "May 1, 2026 (last updated: May 10, 2026)". The date is rendered as a `<time class="dt-updated">` element for Microformats compatibility.
 
 To populate `.Lastmod`, either enable git-based dates in your `hugo.toml`:
 
