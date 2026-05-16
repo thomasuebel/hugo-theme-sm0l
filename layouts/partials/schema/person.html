@@ -1,0 +1,47 @@
+{{- $schema := .Site.Params.schema -}}
+{
+  "@type": "Person",
+  "@id": "{{ .Site.BaseURL }}#person",
+  "name": "{{ $schema.givenName }} {{ $schema.familyName }}",
+  "givenName": "{{ $schema.givenName }}",
+  "familyName": "{{ $schema.familyName }}",
+  "url": "{{ .Site.BaseURL }}"
+  {{- if $schema.jobTitle }},
+  "jobTitle": "{{ $schema.jobTitle }}"
+  {{- end }}
+  {{- if $schema.description }},
+  "description": "{{ $schema.description }}"
+  {{- end }}
+  {{- if or $schema.addressLocality $schema.addressCountry }},
+  "address": {
+    "@type": "PostalAddress"
+    {{- if $schema.addressLocality }},
+    "addressLocality": "{{ $schema.addressLocality }}"
+    {{- end }}
+    {{- if $schema.addressCountry }},
+    "addressCountry": "{{ $schema.addressCountry }}"
+    {{- end }}
+  }
+  {{- end }}
+  {{- if $schema.knowsAbout }},
+  "knowsAbout": [{{ range $i, $v := $schema.knowsAbout }}{{ if $i }}, {{ end }}"{{ $v }}"{{ end }}]
+  {{- end }}
+  {{- if $schema.sameAs }},
+  "sameAs": [{{ range $i, $v := $schema.sameAs }}{{ if $i }}, {{ end }}"{{ $v }}"{{ end }}]
+  {{- end }}
+  {{- if $schema.alumniOf }},
+  "alumniOf": [
+    {{- range $i, $v := $schema.alumniOf }}{{ if $i }}, {{ end }}{
+      "@type": "Organization",
+      "name": "{{ $v.name }}"
+      {{- if $v.url }},
+      "url": "{{ $v.url }}"
+      {{- end }}
+    }
+    {{- end }}
+  ]
+  {{- end }}
+  {{- if .Site.Params.author.avatar }},
+  "image": "{{ .Site.Params.author.avatar | absURL }}"
+  {{- end }}
+}

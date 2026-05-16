@@ -1,0 +1,19 @@
+{{- if .Site.Params.schema -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {{ partial "schema/person.html" . }},
+    {{- if .IsHome }}
+    {{ partial "schema/website.html" . }}
+    {{- else if eq .RelPermalink "/about/" }}
+    {{ partial "schema/aboutpage.html" . }}
+    {{- else if and (eq .Kind "section") (eq .Type "blog") }}
+    {{ partial "schema/blog-index.html" . }}
+    {{- else if eq .Kind "page" }}
+    {{ partial "schema/blogposting.html" . }}
+    {{- end }}
+  ]
+}
+</script>
+{{- end -}}

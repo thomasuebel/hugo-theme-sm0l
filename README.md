@@ -97,6 +97,41 @@ homepageHeading = "Thomas Uebel"
 
 This lets you keep a creative site title in the navigation while using a semantically meaningful H1 for search engines.
 
+# JSON-LD Structured Data
+
+The theme outputs [Schema.org](https://schema.org) JSON-LD structured data when `[params.schema]` is configured. If not set, no JSON-LD is emitted (graceful no-op).
+
+## Configuration
+
+```toml
+[params.schema]
+  givenName = "Thomas"
+  familyName = "Uebel"
+  jobTitle = "Software Engineer"
+  description = "Engineering leader based in Berlin"
+  addressLocality = "Berlin"
+  addressCountry = "DE"
+  knowsAbout = ["Go", "Hugo", "Web Performance"]
+  sameAs = ["https://github.com/thomasuebel", "https://linkedin.com/in/thomasuebel"]
+
+[[params.schema.alumniOf]]
+  name = "University Name"
+  url = "https://example.edu"
+```
+
+## What gets output
+
+Each page emits a single `<script type="application/ld+json">` block containing an `@graph` with:
+
+| Page | Entities |
+|------|----------|
+| Homepage | Person + WebSite |
+| `/about/` | Person + AboutPage |
+| Blog list (`/blog/`) | Person + CollectionPage |
+| Blog post | Person + BlogPosting (with dates, headline, keywords) |
+
+The Person entity uses `@id: /#person` so all other entities reference it without duplication.
+
 # Avatar
 
 Place your avatar image PNG into your assets/images/ directory as avatar.png. It will override the

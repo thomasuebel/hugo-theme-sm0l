@@ -1,0 +1,22 @@
+{
+  "@type": "BlogPosting",
+  "headline": "{{ .Title }}",
+  "url": "{{ .Permalink }}",
+  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}"
+  {{- if and .Lastmod (ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02")) }},
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}"
+  {{- end }},
+  "author": {
+    "@id": "{{ .Site.BaseURL }}#person"
+  },
+  "publisher": {
+    "@id": "{{ .Site.BaseURL }}#person"
+  },
+  "mainEntityOfPage": "{{ .Permalink }}"
+  {{- if .Description }},
+  "description": "{{ .Description }}"
+  {{- end }}
+  {{- if .Params.tags }},
+  "keywords": [{{ range $i, $v := .Params.tags }}{{ if $i }}, {{ end }}"{{ $v }}"{{ end }}]
+  {{- end }}
+}

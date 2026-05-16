@@ -79,5 +79,9 @@
 	{{- end }}
 {{- end }}
 
+{{- if .Site.Params.schema }}
+{{ partial "schema/index.html" . }}
+{{- end }}
+
 {{ partial "custom-head.html" . }}
 {{ partial "favicon.html" . }}
